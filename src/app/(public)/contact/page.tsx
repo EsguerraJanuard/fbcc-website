@@ -137,7 +137,7 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleChange}
                         className="w-full p-4 rounded-xl bg-gray-50 dark:bg-gray-800 border-none ring-1 ring-gray-200 dark:ring-gray-700 focus:ring-2 focus:ring-fbcc-ocean text-gray-900 dark:text-white transition-shadow outline-none" 
-                        placeholder="John Doe"
+                        placeholder="John D. Baptist"
                         required 
                         disabled={status === "loading"}
                       />

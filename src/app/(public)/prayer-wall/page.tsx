@@ -68,7 +68,7 @@ export default async function PrayerWallPage({ searchParams }: Props) {
                 <form action="/api/prayers" method="POST" className="space-y-5 relative z-10">
                   <div>
                     <label className="block text-sm font-bold mb-1.5 uppercase tracking-wide text-blue-200 text-xs">Your Name (or Anonymous)</label>
-                    <input type="text" name="author_name" required placeholder="John Doe" className="w-full p-3 bg-white/10 border border-white/20 rounded-xl focus:bg-white/20 focus:ring-2 focus:ring-white/30 transition-all outline-none placeholder-white/40 text-white" />
+                    <input type="text" name="author_name" required placeholder="John D. Baptist" className="w-full p-3 bg-white/10 border border-white/20 rounded-xl focus:bg-white/20 focus:ring-2 focus:ring-white/30 transition-all outline-none placeholder-white/40 text-white" />
                   </div>
                   
                   <div>
