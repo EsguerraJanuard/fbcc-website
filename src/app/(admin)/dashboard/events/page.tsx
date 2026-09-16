@@ -90,8 +90,8 @@ export default function AdminEventsPage() {
     <div className="max-w-7xl mx-auto space-y-6 animate-in fade-in duration-500">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-serif font-bold text-gray-900">Manage Events</h1>
-          <p className="text-gray-500 mt-1">Schedule and organize upcoming church activities.</p>
+          <h1 className="text-3xl font-serif font-bold text-gray-900 dark:text-gray-100">Manage Events</h1>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">Schedule and organize upcoming church activities.</p>
         </div>
       </div>
 
@@ -99,8 +99,8 @@ export default function AdminEventsPage() {
         
         {/* Left Column: Events List */}
         <div className="w-full lg:w-7/12 order-2 lg:order-1">
-          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="px-8 py-6 border-b border-gray-100 flex items-center justify-between bg-gray-50/50">
+          <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+            <div className="px-8 py-6 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between bg-gray-50 dark:bg-gray-800/50">
               <h2 className="text-lg font-bold text-fbcc-ocean dark:text-blue-300 flex items-center gap-2">
                 <svg className="w-5 h-5 text-fbcc-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                 Event Calendar
@@ -116,9 +116,9 @@ export default function AdminEventsPage() {
                 <p>No upcoming events scheduled.</p>
               </div>
             ) : (
-              <ul className="divide-y divide-gray-100 max-h-[600px] overflow-y-auto custom-scrollbar">
+              <ul className="divide-y divide-gray-100 dark:divide-gray-800 max-h-[600px] overflow-y-auto custom-scrollbar">
                 {events.map(event => (
-                  <li key={event.id} className="p-6 hover:bg-gray-50/80 transition-colors group">
+                  <li key={event.id} className="p-6 hover:bg-gray-50 dark:bg-gray-800/80 transition-colors group">
                     <div className="flex justify-between items-start gap-4">
                       <div>
                         <div className="flex items-center gap-3 mb-1">
@@ -132,8 +132,8 @@ export default function AdminEventsPage() {
                             </span>
                           )}
                         </div>
-                        <h3 className="text-lg font-bold text-gray-900 group-hover:text-fbcc-ocean dark:group-hover:text-blue-300 dark:hover:text-blue-300 dark:text-blue-300 transition-colors">{event.title}</h3>
-                        {event.description && <p className="text-sm text-gray-500 mt-1 line-clamp-2">{event.description}</p>}
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-fbcc-ocean dark:group-hover:text-blue-300 dark:hover:text-blue-300 dark:text-blue-300 transition-colors">{event.title}</h3>
+                        {event.description && <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">{event.description}</p>}
                       </div>
                       
                       <button onClick={() => handleDelete(event.id, event.title)} className="px-3 py-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors flex-shrink-0" aria-label="Delete Event">
@@ -149,27 +149,27 @@ export default function AdminEventsPage() {
 
         {/* Right Column: Add Event Form (Sticky) */}
         <div className="w-full lg:w-5/12 order-1 lg:order-2 lg:sticky lg:top-8">
-          <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
-            <h2 className="text-xl font-serif font-bold mb-6 text-gray-900">Create New Event</h2>
+          <div className="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800">
+            <h2 className="text-xl font-serif font-bold mb-6 text-gray-900 dark:text-gray-100">Create New Event</h2>
             {error && <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-xl text-sm border border-red-100">{error}</div>}
             
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5 uppercase tracking-wide text-xs">Event Title</label>
-                <input type="text" required value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g. Wednesday Prayer Meeting" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none" />
+                <input type="text" required value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g. Wednesday Prayer Meeting" className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:bg-white dark:bg-gray-900 focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none" />
               </div>
               
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5 uppercase tracking-wide text-xs">Date & Time</label>
-                <input type="datetime-local" required value={eventDate} onChange={e => setEventDate(e.target.value)} className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none" />
+                <input type="datetime-local" required value={eventDate} onChange={e => setEventDate(e.target.value)} className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:bg-white dark:bg-gray-900 focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none" />
               </div>
               
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5 uppercase tracking-wide text-xs">Description (Optional)</label>
-                <textarea rows={3} value={description} onChange={e => setDescription(e.target.value)} placeholder="Event details, location, what to bring..." className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none resize-none"></textarea>
+                <textarea rows={3} value={description} onChange={e => setDescription(e.target.value)} placeholder="Event details, location, what to bring..." className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:bg-white dark:bg-gray-900 focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none resize-none"></textarea>
               </div>
 
-              <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors" onClick={() => setIsRecurring(!isRecurring)}>
+              <div className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 cursor-pointer hover:bg-gray-100 transition-colors" onClick={() => setIsRecurring(!isRecurring)}>
                 <input type="checkbox" checked={isRecurring} onChange={e => setIsRecurring(e.target.checked)} className="w-5 h-5 text-fbcc-ocean dark:text-blue-300 rounded focus:ring-fbcc-ocean border-gray-300 pointer-events-none" />
                 <label className="text-sm font-bold text-gray-700 pointer-events-none select-none">This is a recurring weekly event</label>
               </div>
