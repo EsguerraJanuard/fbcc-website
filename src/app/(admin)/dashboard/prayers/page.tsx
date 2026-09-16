@@ -104,17 +104,17 @@ export default function PrayersModeratorPage() {
             rows={4}
           />
           <div className="flex justify-end gap-2">
-            <button onClick={cancelEditing} className="px-4 py-2 text-sm font-bold text-gray-500 dark:text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">Cancel</button>
+            <button onClick={cancelEditing} className="px-4 py-2 text-sm font-bold text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:text-gray-300 hover:bg-gray-100 rounded-lg transition-colors">Cancel</button>
             <button onClick={() => saveEdit(prayer.id)} className="px-5 py-2 bg-fbcc-ocean hover:bg-[#00557A] text-white text-sm font-bold rounded-lg transition-colors shadow-sm">Save Changes</button>
           </div>
         </div>
       ) : (
         <div className="mb-4 relative">
-          <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl border border-gray-100 dark:border-gray-800 italic text-gray-700 text-[15px] leading-relaxed relative group-hover:border-gray-200 dark:border-gray-700 transition-colors">
+          <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl border border-gray-100 dark:border-gray-800 italic text-gray-700 dark:text-gray-300 text-[15px] leading-relaxed relative group-hover:border-gray-200 dark:border-gray-700 transition-colors">
             "{prayer.content}"
             <button 
               onClick={() => startEditing(prayer)}
-              className="absolute -top-3 -right-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 hover:border-fbcc-ocean text-gray-400 hover:text-fbcc-ocean dark:hover:text-blue-300 dark:text-blue-300 p-2 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-all transform hover:scale-110"
+              className="absolute -top-3 -right-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 hover:border-fbcc-ocean text-gray-400 hover:text-fbcc-ocean dark:text-blue-400 dark:hover:text-blue-300 dark:text-blue-300 p-2 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-all transform hover:scale-110"
               title="Edit Prayer Content"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
@@ -124,7 +124,7 @@ export default function PrayersModeratorPage() {
       )}
       
       <div className="flex items-center gap-3 mb-5">
-        <span className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 dark:text-gray-400 font-bold text-sm">
+        <span className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 font-bold text-sm">
           {prayer.author_name.charAt(0).toUpperCase()}
         </span>
         <div>
@@ -138,7 +138,7 @@ export default function PrayersModeratorPage() {
           onClick={() => handleToggleApproval(prayer.id, prayer.is_approved)} 
           className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${
             prayer.is_approved 
-              ? 'bg-yellow-50 text-yellow-700 hover:bg-yellow-100 border border-yellow-200' 
+              ? 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-300 hover:bg-yellow-100 border border-yellow-200 dark:border-yellow-800' 
               : 'bg-green-50 text-green-700 hover:bg-green-100 border border-green-200'
           }`}
         >
@@ -167,21 +167,21 @@ export default function PrayersModeratorPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         
         {/* Pending Column */}
-        <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-yellow-200 overflow-hidden relative">
+        <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-yellow-200 dark:border-yellow-800 overflow-hidden relative">
           <div className="absolute top-0 left-0 w-full h-1 bg-yellow-400"></div>
-          <div className="px-8 py-6 border-b border-yellow-100 bg-yellow-50/50 flex justify-between items-center">
-            <h2 className="text-lg font-bold text-yellow-800 flex items-center gap-2">
-              <svg className="w-5 h-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          <div className="px-8 py-6 border-b border-yellow-100 dark:border-yellow-900 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-900/20/50 dark:bg-yellow-900/20 flex justify-between items-center">
+            <h2 className="text-lg font-bold text-yellow-800 dark:text-yellow-400 flex items-center gap-2">
+              <svg className="w-5 h-5 text-yellow-600 dark:text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
               Pending Approval
             </h2>
-            <span className="bg-yellow-200 text-yellow-800 py-1 px-3 rounded-full text-xs font-bold">{pendingPrayers.length}</span>
+            <span className="bg-yellow-200 dark:bg-yellow-800 dark:bg-yellow-700 text-yellow-800 dark:text-yellow-400 dark:text-yellow-100 py-1 px-3 rounded-full text-xs font-bold">{pendingPrayers.length}</span>
           </div>
           
           {loading ? (
             <div className="p-12 text-center text-gray-400 animate-pulse">Loading requests...</div>
           ) : pendingPrayers.length === 0 ? (
             <div className="p-12 text-center text-gray-400 flex flex-col items-center">
-              <svg className="w-12 h-12 mb-4 opacity-30 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M5 13l4 4L19 7" /></svg>
+              <svg className="w-12 h-12 mb-4 opacity-30 text-yellow-600 dark:text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M5 13l4 4L19 7" /></svg>
               <p>You're all caught up! No pending requests.</p>
             </div>
           ) : (
@@ -195,11 +195,11 @@ export default function PrayersModeratorPage() {
         <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden relative">
           <div className="absolute top-0 left-0 w-full h-1 bg-fbcc-navy"></div>
           <div className="px-8 py-6 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 flex justify-between items-center">
-            <h2 className="text-lg font-bold text-fbcc-navy flex items-center gap-2">
-              <svg className="w-5 h-5 text-fbcc-ocean dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <h2 className="text-lg font-bold text-fbcc-navy dark:text-blue-300 flex items-center gap-2">
+              <svg className="w-5 h-5 text-fbcc-ocean dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               Publicly Visible
             </h2>
-            <span className="bg-gray-200 text-gray-700 py-1 px-3 rounded-full text-xs font-bold">{approvedPrayers.length}</span>
+            <span className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 dark:text-gray-200 py-1 px-3 rounded-full text-xs font-bold">{approvedPrayers.length}</span>
           </div>
           
           {loading ? (

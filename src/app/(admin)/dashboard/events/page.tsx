@@ -102,10 +102,10 @@ export default function AdminEventsPage() {
           <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
             <div className="px-8 py-6 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between bg-gray-50 dark:bg-gray-800/50">
               <h2 className="text-lg font-bold text-fbcc-ocean dark:text-blue-300 flex items-center gap-2">
-                <svg className="w-5 h-5 text-fbcc-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                <svg className="w-5 h-5 text-fbcc-navy dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                 Event Calendar
               </h2>
-              <span className="bg-gray-200 text-gray-700 text-xs font-bold px-3 py-1 rounded-full">{events.length} Upcoming</span>
+              <span className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-bold px-3 py-1 rounded-full">{events.length} Upcoming</span>
             </div>
             
             {loading ? (
@@ -132,7 +132,7 @@ export default function AdminEventsPage() {
                             </span>
                           )}
                         </div>
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-fbcc-ocean dark:group-hover:text-blue-300 dark:hover:text-blue-300 dark:text-blue-300 transition-colors">{event.title}</h3>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-fbcc-ocean dark:text-blue-400 dark:group-hover:text-blue-300 dark:hover:text-blue-300 dark:text-blue-300 transition-colors">{event.title}</h3>
                         {event.description && <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">{event.description}</p>}
                       </div>
                       
@@ -155,23 +155,23 @@ export default function AdminEventsPage() {
             
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5 uppercase tracking-wide text-xs">Event Title</label>
+                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5 uppercase tracking-wide text-xs">Event Title</label>
                 <input type="text" required value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g. Wednesday Prayer Meeting" className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:bg-white dark:bg-gray-900 focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none" />
               </div>
               
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5 uppercase tracking-wide text-xs">Date & Time</label>
+                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5 uppercase tracking-wide text-xs">Date & Time</label>
                 <input type="datetime-local" required value={eventDate} onChange={e => setEventDate(e.target.value)} className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:bg-white dark:bg-gray-900 focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none" />
               </div>
               
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5 uppercase tracking-wide text-xs">Description (Optional)</label>
+                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5 uppercase tracking-wide text-xs">Description (Optional)</label>
                 <textarea rows={3} value={description} onChange={e => setDescription(e.target.value)} placeholder="Event details, location, what to bring..." className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:bg-white dark:bg-gray-900 focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none resize-none"></textarea>
               </div>
 
               <div className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 cursor-pointer hover:bg-gray-100 transition-colors" onClick={() => setIsRecurring(!isRecurring)}>
                 <input type="checkbox" checked={isRecurring} onChange={e => setIsRecurring(e.target.checked)} className="w-5 h-5 text-fbcc-ocean dark:text-blue-300 rounded focus:ring-fbcc-ocean border-gray-300 pointer-events-none" />
-                <label className="text-sm font-bold text-gray-700 pointer-events-none select-none">This is a recurring weekly event</label>
+                <label className="text-sm font-bold text-gray-700 dark:text-gray-300 pointer-events-none select-none">This is a recurring weekly event</label>
               </div>
 
               <button type="submit" disabled={isSubmitting} className="w-full bg-fbcc-ocean hover:bg-[#00557A] text-white font-bold py-3.5 px-6 rounded-xl transition-colors disabled:opacity-50 flex justify-center items-center gap-2 mt-2">

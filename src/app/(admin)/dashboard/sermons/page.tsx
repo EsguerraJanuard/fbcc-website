@@ -107,11 +107,11 @@ export default function AdminSermonsPage() {
         <div className="w-full lg:w-7/12 order-2 lg:order-1">
           <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
             <div className="px-8 py-6 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between bg-gray-50 dark:bg-gray-800/50">
-              <h2 className="text-lg font-bold text-fbcc-navy flex items-center gap-2">
+              <h2 className="text-lg font-bold text-fbcc-navy dark:text-blue-300 flex items-center gap-2">
                 <svg className="w-5 h-5 text-fbcc-ocean dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
                 Sermon Archive
               </h2>
-              <span className="bg-gray-200 text-gray-700 text-xs font-bold px-3 py-1 rounded-full">{sermons.length} Total</span>
+              <span className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-bold px-3 py-1 rounded-full">{sermons.length} Total</span>
             </div>
             
             {loading ? (
@@ -133,11 +133,11 @@ export default function AdminSermonsPage() {
                           </span>
                           <span className="text-xs font-medium text-gray-500 dark:text-gray-400">By {sermon.preacher}</span>
                         </div>
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-fbcc-ocean dark:group-hover:text-blue-300 dark:hover:text-blue-300 dark:text-blue-300 transition-colors">{sermon.title}</h3>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-fbcc-ocean dark:text-blue-400 dark:group-hover:text-blue-300 dark:hover:text-blue-300 dark:text-blue-300 transition-colors">{sermon.title}</h3>
                       </div>
                       
                       <div className="flex items-center gap-2 w-full sm:w-auto">
-                        <a href={sermon.drive_link} target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none text-center px-4 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 dark:bg-gray-800 hover:text-fbcc-ocean dark:hover:text-blue-300 dark:text-blue-300 transition-colors">
+                        <a href={sermon.drive_link} target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none text-center px-4 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:bg-gray-800 hover:text-fbcc-ocean dark:text-blue-400 dark:hover:text-blue-300 dark:text-blue-300 transition-colors">
                           Listen
                         </a>
                         <button onClick={() => handleDelete(sermon.id, sermon.title)} className="px-3 py-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" aria-label="Delete Sermon">
@@ -160,28 +160,28 @@ export default function AdminSermonsPage() {
             
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5 uppercase tracking-wide text-xs">Sermon Title</label>
+                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5 uppercase tracking-wide text-xs">Sermon Title</label>
                 <input type="text" required value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g. The Power of Faith" className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:bg-white dark:bg-gray-900 focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none" />
               </div>
               
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-1.5 uppercase tracking-wide text-xs">Preacher</label>
+                  <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5 uppercase tracking-wide text-xs">Preacher</label>
                   <input type="text" required value={preacher} onChange={e => setPreacher(e.target.value)} placeholder="Pastor Joel" className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:bg-white dark:bg-gray-900 focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none" />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-1.5 uppercase tracking-wide text-xs">Date</label>
+                  <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5 uppercase tracking-wide text-xs">Date</label>
                   <input type="date" required value={date} onChange={e => setDate(e.target.value)} className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:bg-white dark:bg-gray-900 focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none" />
                 </div>
               </div>
               
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5 uppercase tracking-wide text-xs">Google Drive Link</label>
+                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5 uppercase tracking-wide text-xs">Google Drive Link</label>
                 <input type="url" required value={driveLink} onChange={e => setDriveLink(e.target.value)} placeholder="https://drive.google.com/..." className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:bg-white dark:bg-gray-900 focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none" />
               </div>
               
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1.5 uppercase tracking-wide text-xs">Description / Key Verse (Optional)</label>
+                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5 uppercase tracking-wide text-xs">Description / Key Verse (Optional)</label>
                 <textarea rows={3} value={transcript} onChange={e => setTranscript(e.target.value)} placeholder="A brief summary of the message..." className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:bg-white dark:bg-gray-900 focus:ring-2 focus:ring-fbcc-ocean/20 focus:border-fbcc-ocean transition-all outline-none resize-none"></textarea>
               </div>
 

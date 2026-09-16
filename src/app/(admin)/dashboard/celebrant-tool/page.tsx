@@ -97,46 +97,46 @@ export default function CelebrantToolPage() {
             
             {/* Uploads */}
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-widest text-fbcc-navy mb-4 border-b border-gray-100 dark:border-gray-800 pb-2">1. Upload Assets</h3>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-fbcc-navy dark:text-blue-300 mb-4 border-b border-gray-100 dark:border-gray-800 pb-2">1. Upload Assets</h3>
               <div className="space-y-5">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Overlay Frame (Transparent PNG)</label>
-                  <input type="file" accept="image/png" onChange={(e) => handleImageUpload(e, "frame")} className="w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer transition-colors" />
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Overlay Frame (Transparent PNG)</label>
+                  <input type="file" accept="image/png" onChange={(e) => handleImageUpload(e, "frame")} className="w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-gray-100 file:text-gray-700 dark:text-gray-300 hover:file:bg-gray-200 dark:bg-gray-700 cursor-pointer transition-colors" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Person's Portrait (JPG/PNG)</label>
-                  <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, "portrait")} className="w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer transition-colors" />
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Person's Portrait (JPG/PNG)</label>
+                  <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, "portrait")} className="w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-gray-100 file:text-gray-700 dark:text-gray-300 hover:file:bg-gray-200 dark:bg-gray-700 cursor-pointer transition-colors" />
                 </div>
               </div>
             </div>
 
             {/* Adjustments */}
             <div className={!portraitImg ? "opacity-50 pointer-events-none transition-opacity" : "transition-opacity"}>
-              <h3 className="text-xs font-bold uppercase tracking-widest text-fbcc-navy mb-4 border-b border-gray-100 dark:border-gray-800 pb-2 flex justify-between items-center">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-fbcc-navy dark:text-blue-300 mb-4 border-b border-gray-100 dark:border-gray-800 pb-2 flex justify-between items-center">
                 2. Adjust Portrait
-                <button onClick={() => { setScale(baseScale); setOffsetX(0); setOffsetY(0); }} className="text-[10px] bg-gray-100 px-2 py-1 rounded text-gray-500 dark:text-gray-400 hover:bg-gray-200 transition-colors">Reset</button>
+                <button onClick={() => { setScale(baseScale); setOffsetX(0); setOffsetY(0); }} className="text-[10px] bg-gray-100 px-2 py-1 rounded text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:bg-gray-700 transition-colors">Reset</button>
               </h3>
               <div className="space-y-6">
                 <div>
-                  <label className="flex justify-between text-sm font-bold text-gray-600 dark:text-gray-300 mb-2">
+                  <label className="flex justify-between text-sm font-bold text-gray-600 dark:text-gray-400 dark:text-gray-300 mb-2">
                     <span>Zoom (Scale)</span>
                     <span className="text-fbcc-ocean dark:text-blue-300">{scale.toFixed(2)}x</span>
                   </label>
-                  <input type="range" min="0.1" max="3" step="0.01" value={scale} onChange={(e) => setScale(parseFloat(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-fbcc-ocean" />
+                  <input type="range" min="0.1" max="3" step="0.01" value={scale} onChange={(e) => setScale(parseFloat(e.target.value))} className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-fbcc-ocean" />
                 </div>
                 <div>
-                  <label className="flex justify-between text-sm font-bold text-gray-600 dark:text-gray-300 mb-2">
+                  <label className="flex justify-between text-sm font-bold text-gray-600 dark:text-gray-400 dark:text-gray-300 mb-2">
                     <span>Move Horizontal (X)</span>
                     <span className="text-fbcc-ocean dark:text-blue-300">{offsetX}px</span>
                   </label>
-                  <input type="range" min="-1000" max="1000" step="10" value={offsetX} onChange={(e) => setOffsetX(parseInt(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-fbcc-ocean" />
+                  <input type="range" min="-1000" max="1000" step="10" value={offsetX} onChange={(e) => setOffsetX(parseInt(e.target.value))} className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-fbcc-ocean" />
                 </div>
                 <div>
-                  <label className="flex justify-between text-sm font-bold text-gray-600 dark:text-gray-300 mb-2">
+                  <label className="flex justify-between text-sm font-bold text-gray-600 dark:text-gray-400 dark:text-gray-300 mb-2">
                     <span>Move Vertical (Y)</span>
                     <span className="text-fbcc-ocean dark:text-blue-300">{offsetY}px</span>
                   </label>
-                  <input type="range" min="-1000" max="1000" step="10" value={offsetY} onChange={(e) => setOffsetY(parseInt(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-fbcc-ocean" />
+                  <input type="range" min="-1000" max="1000" step="10" value={offsetY} onChange={(e) => setOffsetY(parseInt(e.target.value))} className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-fbcc-ocean" />
                 </div>
               </div>
             </div>
@@ -155,12 +155,12 @@ export default function CelebrantToolPage() {
         {/* Canvas Preview Panel */}
         <div className="w-full lg:w-7/12 order-1 lg:order-2 lg:sticky lg:top-8">
           <div className="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col items-center">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-fbcc-navy mb-6 self-start border-b border-gray-100 dark:border-gray-800 pb-2 w-full">Live Preview</h3>
+            <h3 className="text-xs font-bold uppercase tracking-widest text-fbcc-navy dark:text-blue-300 mb-6 self-start border-b border-gray-100 dark:border-gray-800 pb-2 w-full">Live Preview</h3>
             
             <div className="w-full aspect-square bg-gray-50 dark:bg-gray-800 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden relative shadow-inner">
               {(!frameImg && !portraitImg) && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400 p-6 text-center">
-                  <svg className="w-16 h-16 mb-4 opacity-30 text-fbcc-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                  <svg className="w-16 h-16 mb-4 opacity-30 text-fbcc-navy dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                   <p className="font-medium text-gray-500 dark:text-gray-400">Upload a frame and portrait to see preview</p>
                 </div>
               )}
