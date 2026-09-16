@@ -291,12 +291,13 @@ export default async function HomePage() {
                 <div className="h-full bg-gray-200 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-2xl relative group">
                   <div className="absolute inset-0 bg-fbcc-navy/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none z-10"></div>
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15424.321!2d120.672!3d15.023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDAxJzIyLjgiTiAxMjDCsDQwJzE5LjIiRQ!5e0!3m2!1sen!2sph!4v1620000000000!5m2!1sen!2sph&q=Cabalantian+San+Fernando+Pampanga" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.2858372378473!2d120.66049800949149!3d15.08756708539788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f127206b9a91%3A0x5119e7050c2f4712!2sFIRST%20BAPTIST%20CHURCH%20OF%20CABALANTIAN%2C%20INC.!5e0!3m2!1sen!2sph!4v1789542999977!5m2!1sen!2sph" 
                     width="100%" 
                     height="100%" 
                     style={{ border: 0 }} 
                     allowFullScreen={false} 
                     loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
                     title="Google Maps Location"
                     className="filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
                   ></iframe>
