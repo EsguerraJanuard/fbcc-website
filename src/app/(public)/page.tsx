@@ -94,7 +94,6 @@ export default async function HomePage() {
             
             <div className="lg:w-7/12 w-full">
               <FadeIn delay={0.2} direction="left">
-                <h2 className="text-sm font-bold tracking-widest uppercase text-fbcc-earth dark:text-emerald-400 mb-2">Welcome Home</h2>
                 <h3 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 dark:text-gray-100 mb-8">A Message from Pastor Joel</h3>
                 
                 <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-light">
