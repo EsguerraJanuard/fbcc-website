@@ -22,7 +22,7 @@ export async function POST(request: Request) {
       ? new Resend(process.env.RESEND_API_KEY).emails.send({
           from: 'FBCC Website <onboarding@resend.dev>',
           to: ['frstbccabalantian@gmail.com'], // Primary recipient
-          cc: ['esguerrajanuarddd@gmail.com'], // CC additional admins here
+          cc: ['esguerrajanuarddd@gmail.com', 'josiahsariego0302@gmail.com'], // CC additional admins here
           subject: `New Contact Form Submission from ${name}`,
           replyTo: email,
           text: `You have received a new message from the FBCC Website contact form.\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
